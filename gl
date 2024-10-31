@@ -1,5 +1,0 @@
-установка TanStack Query и структура проекта
-
-npm create vite
-npm i @tanstack/react-query
-npm i -D @tanstack/eslint-plugin-query
