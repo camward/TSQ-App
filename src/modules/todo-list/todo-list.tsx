@@ -1,12 +1,14 @@
 import { useTodoList } from "./use-todo-list";
 import { useCreateTodo } from "./use-create-todo";
 import { useDeleteTodo } from "./use-delete-todo";
+import { useToggleTodo } from "./use-toggle-todo";
 
 export function TodoList() {
   const { error, isLoading, todoItems } = useTodoList();
 
   const createTodo = useCreateTodo();
   const deleteTodo = useDeleteTodo();
+  const { toggleTodo } = useToggleTodo();
 
   if (isLoading) {
     return <div>Loading</div>;
@@ -39,6 +41,12 @@ export function TodoList() {
             className="border border-slate-300 rounded p-3 flex justify-between"
             key={todo.id}
           >
+            <input
+              type="checkbox"
+              checked={todo.done}
+              onChange={() => toggleTodo(todo.id, todo.done)}
+            />
+
             {todo.text}
 
             <button
