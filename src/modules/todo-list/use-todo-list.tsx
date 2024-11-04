@@ -9,7 +9,7 @@ export function useTodoList() {
     refetch,
   } = useQuery({
     ...todoListApi.getTodoListQueryOptions(),
-    select: (data) => data,
+    select: (data) => data.toReversed(),
   });
 
   return { error, todoItems, isLoading, refetch };
