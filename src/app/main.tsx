@@ -11,12 +11,15 @@ import { createSyncStoragePersister } from "@tanstack/query-sync-storage-persist
 import { PersistQueryClientProvider } from "@tanstack/react-query-persist-client";
 import { onlineManager } from "@tanstack/query-core";
 import { Loader } from "./loader";
+import { prefetchAuth } from "../modules/auth/prefetch";
 
 onlineManager.setOnline(navigator.onLine);
 
 const persister = createSyncStoragePersister({
   storage: window.localStorage,
 });
+
+prefetchAuth();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

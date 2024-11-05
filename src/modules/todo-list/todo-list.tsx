@@ -3,8 +3,18 @@ import { useCreateTodo } from "./use-create-todo";
 import { useDeleteTodo } from "./use-delete-todo";
 import { useToggleTodo } from "./use-toggle-todo";
 import { useSuspenseUser } from "../auth/use-user";
+import { todoListApi } from "./api";
+import { useSuspenseQuery } from "@tanstack/react-query";
 
 export function TodoList() {
+  useSuspenseQuery({
+    ...todoListApi.getTodoListQueryOptions({ userId: "3" }),
+  });
+
+  useSuspenseQuery({
+    ...todoListApi.getTodoListQueryOptions({ userId: "2" }),
+  });
+
   const { todoItems } = useTodoList();
   const { data: user } = useSuspenseUser();
   const createTodo = useCreateTodo();
