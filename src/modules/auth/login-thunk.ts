@@ -15,18 +15,22 @@ export const loginThunk =
       password,
     });
 
-    if (user) {
-      dispatch(
-        authSlice.actions.addUser({
-          userId: user.id,
-        }),
-      );
+    if (!login || !password) {
+      dispatch(authSlice.actions.setError("Введите логин и пароль"));
+    } else {
+      if (user) {
+        dispatch(
+          authSlice.actions.addUser({
+            userId: user.id,
+          }),
+        );
 
-      queryClient.setQueryData(authApi.getUserById(user.id).queryKey, user);
-      localStorage.setItem("userId", user.id);
+        queryClient.setQueryData(authApi.getUserById(user.id).queryKey, user);
+        localStorage.setItem("userId", user.id);
+      }
+
+      dispatch(authSlice.actions.setError("Логин или пароль неверные"));
     }
-
-    dispatch(authSlice.actions.setError("Пароль и Логин неверные"));
   };
 
 export const useLoginLoading = () =>

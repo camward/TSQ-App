@@ -8,17 +8,17 @@ export function App() {
   const user = useUser();
 
   if (user.isLoading) {
-    return <div>Loading</div>;
+    return <div>Загрузка...</div>;
   }
 
   if (user.data) {
     prefetchTodoList();
 
     return (
-      <>
+      <div className="p-5 mx-auto max-w-[1200px] mt-5 mb-5">
         <LogoutButton />
         <TodoList />
-      </>
+      </div>
     );
   }
 

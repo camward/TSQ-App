@@ -11,7 +11,9 @@ export function useCreateTodo() {
 
     const text = String(formData.get("text") ?? "");
 
-    appDispatch(createTodoThunk(text));
+    if (text) {
+      appDispatch(createTodoThunk(text));
+    }
 
     e.currentTarget.reset();
   };

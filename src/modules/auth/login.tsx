@@ -24,7 +24,7 @@ export function Login() {
   return (
     <div className="p-5 border border-slate-500 rounded-lg container mx-auto mt-10">
       <form className="flex flex-col gap-5 " onSubmit={handleSubmit}>
-        <h1 className="text-bold text-xl">Login</h1>
+        <h1 className="text-bold text-xl">Авторизация</h1>
         <input
           className="p-5 rounded border border-slate-500"
           name="login"
@@ -40,7 +40,7 @@ export function Login() {
 
         <button
           disabled={isLoading}
-          className="p-5 rounded bg-teal-500 text-white disabled:bg-slate-300"
+          className="p-3 rounded bg-teal-500 text-white disabled:bg-slate-300"
         >
           Вход
         </button>

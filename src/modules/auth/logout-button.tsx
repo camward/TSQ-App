@@ -7,7 +7,7 @@ export function LogoutButton() {
   return (
     <button
       onClick={() => dispatch(logoutThunk())}
-      className="border border-rose-500 p-3 rounded"
+      className="border border-rose-500 p-2 pr-4 pl-4 rounded"
     >
       Выход
     </button>

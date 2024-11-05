@@ -10,8 +10,10 @@ export function Loader({ children }: { children: React.ReactNode }) {
           onReset={reset}
           fallbackRender={({ resetErrorBoundary }) => (
             <div>
-              There was an error!
-              <button onClick={() => resetErrorBoundary()}>Try again</button>
+              Возникла ошибка
+              <button onClick={() => resetErrorBoundary()}>
+                Попробовать снова
+              </button>
             </div>
           )}
         >
@@ -19,7 +21,7 @@ export function Loader({ children }: { children: React.ReactNode }) {
             fallback={
               <div className="fixed inset-0 bg-white flex justify-center items-center">
                 <div className="text-teal-500 font-bold text-2xl">
-                  Loading...
+                  Загрузка...
                 </div>
               </div>
             }
